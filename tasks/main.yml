@@ -1,0 +1,28 @@
+---
+# tasks file for haproxy
+#- name: HAProxy Playbook
+#  hosts: lb
+#  remote_user: centos
+#  become: True
+
+#become_user: root
+#become_method: sudo
+#become_ask_password: False
+ 
+- name: ensure haproxy is at the latest version
+  yum:
+    name: haproxy
+    state: latest
+
+- name: haproxy configuration file
+  template:
+    src: /home/centos/ansible-enablement/roles/haproxy/files/haproxy.cfg
+    dest: /etc/haproxy/haproxy.cfg
+    mode: 0644
+
+- name: ensure haproxyd is running (and enable it at boot)
+  service:
+    name: haproxy
+    state: started
+    enabled: yes
+
