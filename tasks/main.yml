@@ -16,7 +16,7 @@
 
 - name: haproxy configuration file
   template:
-    src: haproxy.cfg
+    src: roles/haproxy/files/haproxy.cfg
     dest: /etc/haproxy/haproxy.cfg
     mode: 0644
 
