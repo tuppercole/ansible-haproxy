@@ -16,7 +16,7 @@
 
 - name: haproxy configuration file
   template:
-    src: /home/centos/ansible-enablement/roles/haproxy/files/haproxy.cfg
+    src: haproxy.cfg
     dest: /etc/haproxy/haproxy.cfg
     mode: 0644
 
